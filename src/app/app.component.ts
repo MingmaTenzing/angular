@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'learningAngular';
+
+  name:string = "test"
+  game:string = "peace"
 }
