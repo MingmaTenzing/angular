@@ -1,0 +1,25 @@
+<table class="border">
+    <tr class=" border border-black">
+      <th class=" p-4 border-1 border-black bg-gray-200">Room Number</th>
+      <th class=" p-4 border-1 border-black bg-gray-200">Room Type</th>
+      <th class=" p-4 border-1 border-black bg-gray-200">Room Price</th>
+      <th class=" p-4 border-1 border-black bg-gray-200">Room Amenities</th>
+      <th class=" p-4 border-1 border-black bg-gray-200">Checkin Time</th>
+      <th class=" p-4 border-1 border-black bg-gray-200">Select Room</th>
+    
+    </tr>
+    <tr class="border" *ngFor="let room of rooms ">
+    <td  class=" border p-4  border-black">{{ room.roomNumber }}</td>
+    <td  class=" border p-4  border-black">{{ room.roomType }}</td>
+    <td  class=" border p-4  border-black">{{ room.price  }}</td>
+    <td  class=" border p-4  border-black">{{ room.amenities  }}</td>
+    <td  class=" border p-4  border-black">{{ room.checkintime }}</td>
+    <td  class=" border p-4  border-black">
+        <button (click) ="selectRoom(room)" class=" hover:bg-blue-500 bg-black text-white p-2 rounded-lg">Select</button>
+    </td>
+
+</tr>
+  </table>
+
+
+

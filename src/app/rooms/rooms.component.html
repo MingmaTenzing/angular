@@ -1,1 +1,17 @@
-<p>rooms works!</p>
+
+<app-header></app-header>
+
+<p>{{ hotelName }}</p>
+
+<p>Here are tde list of rooms</p>
+
+<div>
+<!-- ROOMS-LIST TABLE COMES HERE -->
+<app-rooms-list [rooms]="roomList" (selectedRoom)="getSelectedRoom($event)"></app-rooms-list>
+<div *ngIf="selectedRoom">
+    {{selectedRoom.amenities}}
+</div>
+
+</div>
+
+<button (click) ="addData()" class=" bg-black text-white p-4">Add Data</button>
