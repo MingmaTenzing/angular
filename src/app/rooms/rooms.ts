@@ -9,12 +9,13 @@ export interface hotelInfo {
 }
 
 export interface RoomList {
-    roomNumber:number,
+    roomNumber:string,
     roomType: string,
     amenities: string,
     price: number,
-     photo: string, 
-     checkintime: Date,
-     checkoutTime: Date,
+     photos: string,
+     checkinTime: string,
+     checkoutTime:string,
+     rating: number
 
 }
