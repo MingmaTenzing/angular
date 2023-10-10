@@ -28,12 +28,12 @@ export class RoomsComponent implements AfterViewInit, OnInit {
 
   roomList: RoomList[] =[];
   rooms: rooms[] = [];
-  constructor(private roomsServce: RoomsService) {}
+  constructor(private roomsServce: RoomsService,) {}
 
   ngOnInit(): void {
     this.roomsServce.getRooms().subscribe(rooms => {this.roomList = rooms})
   }
-
+  
   toggleBookedRooms() {
     this.showRooms = !this.showRooms;
   }
@@ -44,7 +44,7 @@ export class RoomsComponent implements AfterViewInit, OnInit {
   }
 
   addData() {
-    const newData: RoomList = {
+    const newRoom: RoomList = {
       roomNumber: '10',
       roomType: 'Super Deluxe Dobule Deluxe Room',
       amenities: 'Air Proff',
@@ -55,7 +55,35 @@ export class RoomsComponent implements AfterViewInit, OnInit {
       checkoutTime: "added date",
       rating:4,
     };
-    this.roomList = [...this.roomList, newData];
-    console.log(this.roomList);
+  
+
+    this.roomsServce.addRoom(newRoom).subscribe((data) => {
+      this.roomList = data;
+    })
+
+
   }
+
+  updateData() {
+    const id:string = "3"
+    const updateRoom:RoomList = {
+      roomNumber: '40',
+      roomType: 'Super Deluxe Dobule Deluxe Room',
+      amenities: 'Air Proff',
+      price: 10000,
+      photos:
+        'https://images.livspace-cdn.com/plain/https://jumanji.livspace-cdn.com/magazine/wp-content/uploads/sites/4/2022/02/01073127/Cover-1.png',
+      checkinTime: "added date",
+      checkoutTime: "added date",
+      rating:4,
+
+
+    }
+    this.roomsServce.updateRoom(id, updateRoom).subscribe(data => this.roomList = data);
+  }
+
+  deleteRoom() {
+    this.roomsServce.remove('3')
+  }
+
 }
