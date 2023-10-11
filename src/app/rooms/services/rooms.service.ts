@@ -4,6 +4,7 @@ import { APP_SERVICE_CONFIG } from 'src/app/AppConfig/appconfig.service';
 import { AppConfig } from 'src/app/AppConfig/appconfig.interface';
 import { HttpClient } from '@angular/common/http';
 import { RoomsListComponent } from '../rooms-list/rooms-list.component';
+import { shareReplay } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -35,7 +36,7 @@ export class RoomsService {
 
 
 
-
+getRooms$ = this.http.get<RoomList[]>("/api/rooms").pipe(shareReplay(1))
 
   getRooms() {
   return this.http.get<RoomList[]>("/api/rooms") 

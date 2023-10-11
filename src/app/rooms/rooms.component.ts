@@ -24,14 +24,14 @@ export class RoomsComponent implements AfterViewInit, OnInit {
 
   hotelName: string = 'HYATT HOTEL PERTH';
 
-  showRooms: boolean = false;
+  showRooms: boolean = true;
 
   roomList: RoomList[] =[];
   rooms: rooms[] = [];
   constructor(private roomsServce: RoomsService,) {}
 
   ngOnInit(): void {
-    this.roomsServce.getRooms().subscribe(rooms => {this.roomList = rooms})
+    this.roomsServce.getRooms$.subscribe(rooms => {this.roomList = rooms})
   }
   
   toggleBookedRooms() {
