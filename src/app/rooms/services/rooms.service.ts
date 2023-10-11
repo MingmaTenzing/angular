@@ -4,7 +4,7 @@ import { APP_SERVICE_CONFIG } from 'src/app/AppConfig/appconfig.service';
 import { AppConfig } from 'src/app/AppConfig/appconfig.interface';
 import { HttpClient } from '@angular/common/http';
 import { RoomsListComponent } from '../rooms-list/rooms-list.component';
-import { shareReplay } from 'rxjs';
+import { Subject, catchError, shareReplay } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -34,9 +34,14 @@ export class RoomsService {
     },
   ];
 
+error$ = new Subject<string>();
 
-
-getRooms$ = this.http.get<RoomList[]>("/api/rooms").pipe(shareReplay(1))
+getRooms$ = this.http.get<RoomList[]>("/api/rooms").pipe(
+  catchError((err) =>{
+    this.error$.next(err.message);
+    return [];
+  })
+)
 
   getRooms() {
   return this.http.get<RoomList[]>("/api/rooms") 

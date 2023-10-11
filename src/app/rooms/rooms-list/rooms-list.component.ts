@@ -12,7 +12,7 @@ ngOnChanges(changes: SimpleChanges): void {
 }
 
 
- @Input() rooms: RoomList[] = [];
+ @Input() rooms: RoomList[] | null = [];
  @Output() selectedRoom = new EventEmitter<RoomList>();
 
  selectRoom(room: RoomList) {
