@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { RoomList, rooms } from '../rooms';
 import { APP_SERVICE_CONFIG } from 'src/app/AppConfig/appconfig.service';
 import { AppConfig } from 'src/app/AppConfig/appconfig.interface';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RoomsListComponent } from '../rooms-list/rooms-list.component';
 import { Subject, catchError, shareReplay } from 'rxjs';
 
@@ -35,8 +35,10 @@ export class RoomsService {
   ];
 
 error$ = new Subject<string>();
-
-getRooms$ = this.http.get<RoomList[]>("/api/rooms").pipe(
+headers = new HttpHeaders({name:'Mingma', lastName:"sherpa"})
+getRooms$ = this.http.get<RoomList[]>("/api/rooms", {
+  headers:this.headers
+}).pipe(
   catchError((err) =>{
     this.error$.next(err.message);
     return [];
@@ -44,6 +46,7 @@ getRooms$ = this.http.get<RoomList[]>("/api/rooms").pipe(
 )
 
   getRooms() {
+  
   return this.http.get<RoomList[]>("/api/rooms") 
   }
 
