@@ -15,8 +15,10 @@
     <td  class=" border p-4  border-black">{{ room.amenities  }}</td>
     <td  class=" border p-4  border-black">{{ room.checkinTime }}</td>
     <td  class=" border p-4  border-black">
-        <button (click) ="selectRoom(room)" class=" hover:bg-blue-500 bg-black text-white p-2 rounded-lg">Select</button>
-    </td>
+        <!-- <button (click) ="selectRoom(room)" class=" hover:bg-blue-500 bg-black text-white p-2 rounded-lg">Select</button> -->
+
+  <button [routerLink]="['/rooms', room.roomNumber]" >Book Room</button>
+      </td>
 
 </tr>
   </table>
