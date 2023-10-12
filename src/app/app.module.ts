@@ -9,7 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { ContainerComponent } from './container/container.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { APP_CONFG, APP_SERVICE_CONFIG } from './AppConfig/appconfig.service';
-import {HttpClientModule} from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppNavComponent } from './app-nav/app-nav.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -17,7 +17,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { NotfoundComponent } from './notfound/notfound.component'
+import { NotfoundComponent } from './notfound/notfound.component';
+import { RoomsBookingComponent } from './rooms/rooms-booking/rooms-booking.component';
+import { FormsModule } from '@angular/forms';
+import { RoomAddComponent } from './rooms/room-add/room-add.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,24 +31,28 @@ import { NotfoundComponent } from './notfound/notfound.component'
     EmployeeComponent,
     AppNavComponent,
     NotfoundComponent,
+    RoomsBookingComponent,
+    RoomAddComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+
     HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
   ],
   providers: [
     {
       provide: APP_SERVICE_CONFIG,
-       useValue: APP_CONFG,
-    }
+      useValue: APP_CONFG,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

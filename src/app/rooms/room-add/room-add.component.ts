@@ -10,6 +10,8 @@ import { RoomsService } from '../services/rooms.service';
 export class RoomAddComponent {
   constructor( private roomsService: RoomsService) {}
 
+  roomSuccess: boolean = false;
+
   room: RoomList = {
     roomNumber:"",
     roomType: "",
@@ -24,8 +26,10 @@ export class RoomAddComponent {
   }
 
   addRoom() {
+    this.roomSuccess = false;
     this.roomsService.addRoom(this.room).subscribe((data) => {
       console.log(data)
+      this.roomSuccess = true;
     })
   }
 }

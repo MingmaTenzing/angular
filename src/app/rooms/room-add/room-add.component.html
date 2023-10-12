@@ -1,8 +1,11 @@
 {{room | json}}
-
-<form  (ngSubmit)="addRoom()" class=" flex flex-col items-center  justify-center m-4">
+<div *ngIf="roomSuccess" class=" bg-green-400 text-green-700 p-4">
+<p>Room Added Successfully</p>
+</div>
+<form #roomsForm="ngForm"  (ngSubmit)="addRoom()" class=" flex flex-col items-center  justify-center m-4">
   <div class="">
     <input
+     required
       class="p-3 bg-gray-100"
       type="number"
       name="roomNumber"
@@ -13,6 +16,7 @@
 
   <div class="">
     <input
+     required
       class="p-3 bg-gray-100"
       type="text"
       name="amenities"
@@ -24,6 +28,7 @@
   
   <div class="">
     <input
+     required
       class="p-3 bg-gray-100"
       type="text"
       name="roomType"
@@ -34,6 +39,7 @@
   </div>
   <div class="">
     <input
+     required
       class="p-3 bg-gray-100"
       type="text"
       name="number"
@@ -44,6 +50,7 @@
   </div>
   <div class="">
     <input
+     required
       class="p-3 bg-gray-100"
       type="text"
       name="photos"
@@ -54,6 +61,7 @@
   </div>
   <div class="">
     <input
+     required
       class="p-3 bg-gray-100"
       type="text"
       [(ngModel)] ="room.checkinTime"
@@ -64,6 +72,7 @@
   </div>
   <div class="">
     <input
+     required
       class="p-3 bg-gray-100"
       type="text"
       name="checkoutTime"
@@ -74,6 +83,7 @@
   </div>
   <div class="">
     <input
+     required
       class="p-3 bg-gray-100"
       type="number"
       name="rating"
@@ -82,5 +92,5 @@
       placeholder="rating"
     />
   </div>
-  <div class="  "><button type="submit" class=" bg-black text-white p-3 rounded-lg">Submit</button></div>
+  <div class="  "><button [disabled]="roomsForm.invalid" type="submit" class=" bg-black text-white p-3 rounded-lg">Submit</button></div>
 </form>
