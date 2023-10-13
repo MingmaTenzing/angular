@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RoomList } from '../rooms';
 import { RoomsService } from '../services/rooms.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-room-add',
@@ -25,11 +26,12 @@ export class RoomAddComponent {
 
   }
 
-  addRoom() {
+  addRoom(roomForm: NgForm) {
     this.roomSuccess = false;
     this.roomsService.addRoom(this.room).subscribe((data) => {
       console.log(data)
       this.roomSuccess = true;
+      roomForm.reset();
     })
   }
 }

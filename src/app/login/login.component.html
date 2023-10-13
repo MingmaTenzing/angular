@@ -1,0 +1,11 @@
+<form  (ngSubmit)="login()">
+    <div>
+        <input appHover type="email" name="email" class=" p-4  outline-none border " placeholder="enter email" required [(ngModel)] ="email" />
+    </div>
+    <div>
+        <input appHover type=" password" name="password" class=" p-4  outline-none border " placeholder=" enter password" required [(ngModel)]="password"/> 
+    </div>
+    <div>
+        <button type=" submit" class="p-4 bg-blue-400 text-white">Login</button>
+    </div>
+</form>

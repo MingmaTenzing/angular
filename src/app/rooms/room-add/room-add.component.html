@@ -2,7 +2,7 @@
 <div *ngIf="roomSuccess" class=" bg-green-400 text-green-700 p-4">
 <p>Room Added Successfully</p>
 </div>
-<form #roomsForm="ngForm"  (ngSubmit)="addRoom()" class=" flex flex-col items-center  justify-center m-4">
+<form #roomsForm="ngForm"  (ngSubmit)="addRoom(roomsForm)" class=" flex flex-col items-center  justify-center m-4">
   <div class="">
     <input
      required
@@ -42,7 +42,7 @@
      required
       class="p-3 bg-gray-100"
       type="text"
-      name="number"
+      name="price"
       [(ngModel)] ="room.price"
 
       placeholder="price"
