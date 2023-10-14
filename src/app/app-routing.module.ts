@@ -8,17 +8,15 @@ import { RoomAddComponent } from './rooms/room-add/room-add.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  {path: "employee", component: EmployeeComponent},
-  {path: "rooms", component: RoomsComponent},
-  {path: "rooms/add", component: RoomAddComponent},
-  {path: "rooms/:id", component: RoomsBookingComponent},
-  {path: "login", component:LoginComponent},
-  {path:"", redirectTo: '/rooms', pathMatch:'full'},
-  {path: "**", component: NotfoundComponent},
+  { path: 'employee', component: EmployeeComponent },
+
+  { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: '/rooms', pathMatch: 'full' },
+  { path: '**', component: NotfoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

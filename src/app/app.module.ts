@@ -23,26 +23,24 @@ import { FormsModule } from '@angular/forms';
 import { RoomAddComponent } from './rooms/room-add/room-add.component';
 import { LoginComponent } from './login/login.component';
 import { HoverDirective } from './hover.directive';
+import { RoomsModule } from './rooms/rooms.module';
+import { HeaderModule } from './header/header.module';
 @NgModule({
   declarations: [
     AppComponent,
-    RoomsComponent,
-    RoomsListComponent,
-    HeaderComponent,
     ContainerComponent,
     EmployeeComponent,
     AppNavComponent,
     NotfoundComponent,
-    RoomsBookingComponent,
-    RoomAddComponent,
     LoginComponent,
     HoverDirective,
   ],
   imports: [
     BrowserModule,
+    HeaderModule,
+    RoomsModule,
     AppRoutingModule,
     FormsModule,
-
     HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
