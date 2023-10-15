@@ -6,9 +6,11 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { RoomsBookingComponent } from './rooms/rooms-booking/rooms-booking.component';
 import { RoomAddComponent } from './rooms/room-add/room-add.component';
 import { LoginComponent } from './login/login.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   { path: 'employee', component: EmployeeComponent },
+  { path: 'search', component: SearchComponent },
   {
     path: 'rooms',
     loadChildren: () =>
@@ -17,6 +19,7 @@ const routes: Routes = [
 
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/rooms', pathMatch: 'full' },
+  { path: 'booking', loadChildren: () => import('./booking/booking.module').then(m => m.BookingModule) },
   { path: '**', component: NotfoundComponent },
 ];
 
