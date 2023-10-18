@@ -8,6 +8,7 @@ import { RoomAddComponent } from './rooms/room-add/room-add.component';
 import { LoginComponent } from './login/login.component';
 import { SearchComponent } from './search/search.component';
 import { logingaurdGuard } from './gaurd/logingaurd.guard';
+import { BookingComponent } from './booking/booking.component';
 
 const routes: Routes = [
   { path: 'employee', component: EmployeeComponent, canActivate:[logingaurdGuard] },
@@ -20,7 +21,7 @@ const routes: Routes = [
 
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/rooms', pathMatch: 'full' },
-  { path: 'booking', loadChildren: () => import('./booking/booking.module').then(m => m.BookingModule), canActivate:[logingaurdGuard] },
+  { path: 'booking', loadChildren: () => import('./booking/booking.module').then(m => m.BookingModule) },
   { path: '**', component: NotfoundComponent },
 ];
 

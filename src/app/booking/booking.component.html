@@ -1,1 +1,106 @@
 <p>booking works!</p>
+
+{{ bookingForm.value | json }}
+<form
+  (ngSubmit)="addBooking()"
+  [formGroup]="bookingForm"
+  class="flex flex-col space-y-4 w-[70%] m-auto"
+>
+  <mat-form-field>
+    <mat-label>RoomId</mat-label>
+    <input type="text" formControlName="roomId" matInput />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Guest Name</mat-label>
+    <input type="text" formControlName="guestName" matInput />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input type="email" formControlName="guestEmail" matInput />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Mobile Number</mat-label>
+    <input type="number" formControlName="mobileNumber" matInput />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Booking Amount</mat-label>
+    <input type="number" formControlName="bookingAmount" matInput />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>BookingDate</mat-label>
+    <input formControlName="bookingDate" matInput [matDatepicker]="picker" />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>CheckinDate</mat-label>
+    <input formControlName="checkinDate" matInput [matDatepicker]="picker1" />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle
+      matIconSuffix
+      [for]="picker1"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>CheckOut Date</mat-label>
+    <input formControlName="checkoutDate" matInput [matDatepicker]="picker2" />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle
+      matIconSuffix
+      [for]="picker2"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #picker2></mat-datepicker>
+  </mat-form-field>
+
+  <div>
+    <mat-accordion>
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Address </mat-panel-title>
+          <button
+            mat-icon-button
+            aria-label="Example icon button with a vertical three dot icon"
+          >
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </mat-expansion-panel-header>
+<div formGroupName="address" class=" w-full flex flex-col">
+
+    <mat-form-field>
+      <mat-label>Address Line 1</mat-label>
+      <input type="text" formControlName="addressline1" matInput />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Address Line 2</mat-label>
+      <input type="text" formControlName="addressLine2" matInput />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>City</mat-label>
+      <input type="text" formControlName="guestCity" matInput />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>State</mat-label>
+      <input type="text" formControlName="guestState" matInput />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>County</mat-label>
+      <input type="text" formControlName="guestCountry" matInput />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Zip Code</mat-label>
+      <input type="text" formControlName="guestZipCode" matInput />
+    </mat-form-field>
+ 
+</div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+  <button mat-fab extended color="primary" type="submit">Submit</button>
+</form>
