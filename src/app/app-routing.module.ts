@@ -15,7 +15,7 @@ const routes: Routes = [
   {
     path: 'rooms',
     loadChildren: () =>
-      import('./rooms/rooms.module').then((m) => m.RoomsModule), canActivate:[logingaurdGuard]
+      import('./rooms/rooms.module').then((m) => m.RoomsModule), canActivate:[logingaurdGuard], canMatch:[logingaurdGuard]
   },
 
   { path: 'login', component: LoginComponent },
