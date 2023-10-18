@@ -23,7 +23,7 @@ export class BookingComponent implements OnInit{
         bookingAmount: [''],
         bookingDate:[''],
         mobileNumber: [''],
-        guestName: [''],
+       
         address: this.fb.group({
           addressline1: [''],
         addressLine2: [''],
@@ -33,7 +33,9 @@ export class BookingComponent implements OnInit{
         guestZipCode: [''],
         }),
         guestCount: [''],
-        guestList: ['']
+        guests: this.fb.array([ 
+          this.fb.group({ guestName: [''], age: new FormControl("")})
+        ])
       })
   }
 
