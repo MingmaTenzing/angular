@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-booking',
@@ -11,7 +11,13 @@ export class BookingComponent implements OnInit{
   panelOpenState:boolean = false;
   bookingForm!: FormGroup;
 
+
   constructor( private fb:FormBuilder) {}
+
+  get guests() {
+    return this.bookingForm.get('guests') as FormArray;
+
+  }
 
   ngOnInit(): void {
       this.bookingForm = this.fb.group({
@@ -41,6 +47,12 @@ export class BookingComponent implements OnInit{
 
   addBooking() {
     console.log(this.bookingForm.value)
+  }
+
+  addGuest() {
+    this.guests.push(this.fb.group({guestName:[''], age: new FormControl("")}))
+   
+
   }
 
 }

@@ -12,11 +12,6 @@
   </mat-form-field>
 
   <mat-form-field>
-    <mat-label>Guest Name</mat-label>
-    <input type="text" formControlName="guestName" matInput />
-  </mat-form-field>
-
-  <mat-form-field>
     <mat-label>Email</mat-label>
     <input type="email" formControlName="guestEmail" matInput />
   </mat-form-field>
@@ -70,36 +65,70 @@
             <mat-icon>more_vert</mat-icon>
           </button>
         </mat-expansion-panel-header>
-<div formGroupName="address" class=" w-full flex flex-col">
-
-    <mat-form-field>
-      <mat-label>Address Line 1</mat-label>
-      <input type="text" formControlName="addressline1" matInput />
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Address Line 2</mat-label>
-      <input type="text" formControlName="addressLine2" matInput />
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>City</mat-label>
-      <input type="text" formControlName="guestCity" matInput />
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>State</mat-label>
-      <input type="text" formControlName="guestState" matInput />
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>County</mat-label>
-      <input type="text" formControlName="guestCountry" matInput />
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Zip Code</mat-label>
-      <input type="number" formControlName="guestZipCode" matInput />
-    </mat-form-field>
- 
-</div>
+        <div formGroupName="address" class="w-full flex flex-col">
+          <mat-form-field>
+            <mat-label>Address Line 1</mat-label>
+            <input type="text" formControlName="addressline1" matInput />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Address Line 2</mat-label>
+            <input type="text" formControlName="addressLine2" matInput />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>City</mat-label>
+            <input type="text" formControlName="guestCity" matInput />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>State</mat-label>
+            <input type="text" formControlName="guestState" matInput />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>County</mat-label>
+            <input type="text" formControlName="guestCountry" matInput />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Zip Code</mat-label>
+            <input type="number " formControlName="guestZipCode" matInput />
+          </mat-form-field>
+        </div>
       </mat-expansion-panel>
     </mat-accordion>
+  </div>
+
+ 
+
+  <div>
+
+    <mat-accordion>
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Guests </mat-panel-title>
+          <button
+            mat-icon-button
+            aria-label="Example icon button with a vertical three dot icon"
+          >
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </mat-expansion-panel-header>
+        <div formArrayName="guests" class="">
+          <div *ngFor="let guest of guests.controls; let i = index" class=" ">
+            <div [formGroupName]="i" class="w-full flex flex-col">
+              <mat-form-field>
+                <mat-label>Guest Name</mat-label>
+                <input type="text" formControlName="guestName" matInput />
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Age</mat-label>
+                <input type="number" formControlName="age" matInput />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+    <button mat-fab extended color="primary" type="button" (click)="addGuest()">
+      Add Guest
+    </button>
+  </mat-expansion-panel>
+</mat-accordion>
   </div>
 
   <button mat-fab extended color="primary" type="submit">Submit</button>
