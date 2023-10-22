@@ -22,7 +22,6 @@
   <mat-form-field>
     <mat-label>Mobile Number</mat-label>
     <input type="number" formControlName="mobileNumber" matInput />
-  
   </mat-form-field>
 
   <mat-form-field>
@@ -72,10 +71,20 @@
         <div formGroupName="address" class="w-full flex flex-col">
           <mat-form-field>
             <mat-label>Address Line 1</mat-label>
-            <input type="text" minlength="3" formControlName="addressline1" matInput />
-            {{bookingForm.get('address.addressline1')?.errors | json }}
-            <mat-error *ngIf="bookingForm.get('address.addressline1')?.hasError('minlength')">
-Min character has to be 2            </mat-error>
+            <input
+              type="text"
+              minlength="3"
+              formControlName="addressline1"
+              matInput
+            />
+            {{ bookingForm.get("address.addressline1")?.errors | json }}
+            <mat-error
+              *ngIf="
+                bookingForm.get('address.addressline1')?.hasError('minlength')
+              "
+            >
+              Min character has to be 2
+            </mat-error>
           </mat-form-field>
           <mat-form-field>
             <mat-label>Address Line 2</mat-label>
@@ -120,6 +129,9 @@ Min character has to be 2            </mat-error>
               <mat-form-field>
                 <mat-label>Guest Name</mat-label>
                 <input type="text" formControlName="guestName" matInput />
+                <mat-error *ngIf="bookingForm.get(['guests', i, 'guestName'])">
+                  Guest Name is required
+                </mat-error>
               </mat-form-field>
               <mat-form-field>
                 <mat-label>Age</mat-label>

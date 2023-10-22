@@ -50,7 +50,7 @@ export class BookingComponent implements OnInit {
   }
 
   addGuestControl() {
-    return this.fb.group({ guestName: [''], age: new FormControl('') });
+    return this.fb.group({ guestName: ['', Validators.required], age: new FormControl('') ,});
   }
   removeGuest(i: number) {
     this.guests.removeAt(i);
