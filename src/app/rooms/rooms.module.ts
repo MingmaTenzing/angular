@@ -6,8 +6,9 @@ import { RoomsComponent } from './rooms.component';
 import { RoomAddComponent } from './room-add/room-add.component';
 import { RoomsBookingComponent } from './rooms-booking/rooms-booking.component';
 import { RoomsListComponent } from './rooms-list/rooms-list.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderModule } from '../header/header.module';
+import { FilterPipe } from './filter.pipe';
 
 
 @NgModule({
@@ -16,11 +17,13 @@ import { HeaderModule } from '../header/header.module';
     RoomsListComponent,
     RoomsBookingComponent,
     RoomAddComponent,
+    FilterPipe,
   ],
   imports: [
     CommonModule,
     RoomsRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HeaderModule,
   ]
 })

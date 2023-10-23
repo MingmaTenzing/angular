@@ -8,7 +8,9 @@
       <th class=" p-4 border-1 border-black bg-gray-200">Select Room</th>
     
     </tr>
-    <tr class="border" *ngFor="let room of rooms ">
+    <tr class="border" *ngFor="let room of rooms | filter : price">
+      
+
     <td  class=" border p-4  border-black">{{ room.roomNumber }}</td>
     <td  class=" border p-4  border-black">{{ room.roomType }}</td>
     <td  class=" border p-4  border-black">{{ room.price  }}</td>

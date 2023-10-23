@@ -11,6 +11,7 @@ import { RoomList, rooms } from './rooms';
 import { HeaderComponent } from '../header/header.component';
 import { RoomsService } from './services/rooms.service';
 import { Subscription } from 'rxjs';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-rooms',
@@ -36,6 +37,8 @@ export class RoomsComponent implements AfterViewInit, OnInit {
   rooms$ = this.roomsServce.getRooms$;
   error$ = this.roomsServce.error$;
   constructor(private roomsServce: RoomsService) {}
+
+pirceFilter = new FormControl(0)
 
   ngOnInit(): void {
     // this.roomsServce.getRooms$.subscribe((rooms) => {

@@ -12,8 +12,11 @@ ngOnChanges(changes: SimpleChanges): void {
 }
 
 
- @Input() rooms: RoomList[] | null = [];
+ @Input() rooms: RoomList[]  = [];
  @Output() selectedRoom = new EventEmitter<RoomList>();
+
+ @Input() price: number | null = 0;
+
 
  selectRoom(room: RoomList) {
   this.selectedRoom.emit(room)
