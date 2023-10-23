@@ -1,0 +1,18 @@
+<table>
+    <tr class=" ">
+        <th class=" px-10 py-4 border border-black ">Post Id</th>
+        <th class=" px-10 py-4 border border-black ">Comment Id</th>
+        <th class=" px-10 py-4 border border-black ">Name</th>
+        <th class=" px-10 py-4 border border-black ">Email</th>
+    </tr>
+
+    <tr *ngFor="let comment of comments$ | async" class=" hover:bg-slate-100" >
+        <td class="  border text-center">{{comment.postId}}</td>
+        <td class=" border text-center">{{comment.id}}</td>
+        <td class="  border text-center">{{comment.name}}</td>
+        <td class="  border text-center">{{comment.email}}</td>
+
+    </tr>
+
+
+</table>
