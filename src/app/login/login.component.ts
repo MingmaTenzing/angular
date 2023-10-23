@@ -13,7 +13,7 @@ email: string = "";
 password: string = "";
 constructor( private router: Router, private LoginService: LoginService) {}
 
-login() {
+signIn() {
   if (this.LoginService.LogIn(this.email, this.password)) {
     this.router.navigate(['/rooms'])
   }

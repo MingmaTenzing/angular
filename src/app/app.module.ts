@@ -21,20 +21,23 @@ import { LoginComponent } from './login/login.component';
 import { HoverDirective } from './hover.directive';
 // import { RoomsModule } from './rooms/rooms.module';
 import { HeaderModule } from './header/header.module';
+import { RouterTestingModule } from '@angular/router/testing';
+import { RouterModule } from '@angular/router';
+import { AppNavModule } from './app-nav/app-nav.module';
 @NgModule({
   declarations: [
     AppComponent,
     ContainerComponent,
     EmployeeComponent,
-    AppNavComponent,
     NotfoundComponent,
     LoginComponent,
     HoverDirective,
   ],
   imports: [
     BrowserModule,
+
+    AppNavModule,
     HeaderModule,
-    // RoomsModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
@@ -42,8 +45,10 @@ import { HeaderModule } from './header/header.module';
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
+    RouterTestingModule,
     MatIconModule,
     MatListModule,
+    RouterModule,
   ],
   providers: [
     {

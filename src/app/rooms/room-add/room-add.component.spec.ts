@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RoomAddComponent } from './room-add.component';
+import { APP_SERVICE_CONFIG } from 'src/app/AppConfig/appconfig.service';
+import { AppConfig } from 'src/app/AppConfig/appconfig.interface';
 
 describe('RoomAddComponent', () => {
   let component: RoomAddComponent;
@@ -8,7 +10,10 @@ describe('RoomAddComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [RoomAddComponent]
+      declarations: [RoomAddComponent],
+      providers: [
+        { provide: APP_SERVICE_CONFIG, useValue: APP_SERVICE_CONFIG }
+      ]
     });
     fixture = TestBed.createComponent(RoomAddComponent);
     component = fixture.componentInstance;
