@@ -14,7 +14,7 @@ import { filter } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements AfterViewInit, OnInit {
+export class AppComponent implements OnInit {
   title = 'learningAngular';
 
   name: string = 'test';
@@ -24,10 +24,6 @@ export class AppComponent implements AfterViewInit, OnInit {
 
   @ViewChild('user', { read: ViewContainerRef }) vcr!: ViewContainerRef;
 
-  ngAfterViewInit(): void {
-    const componentRef = this.vcr.createComponent(RoomsComponent);
-    componentRef.instance.hotelName = 'Mingma Hotel';
-  }
 
   ngOnInit(): void {
     this.router.events.subscribe((event) => console.log(event));

@@ -1,14 +1,10 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EmployeeComponent } from './employee/employee.component';
-import { RoomsComponent } from './rooms/rooms.component';
 import { NotfoundComponent } from './notfound/notfound.component';
-import { RoomsBookingComponent } from './rooms/rooms-booking/rooms-booking.component';
-import { RoomAddComponent } from './rooms/room-add/room-add.component';
 import { LoginComponent } from './login/login.component';
 import { SearchComponent } from './search/search.component';
 import { logingaurdGuard } from './gaurd/logingaurd.guard';
-import { BookingComponent } from './booking/booking.component';
 
 const routes: Routes = [
   { path: 'employee', component: EmployeeComponent, canActivate:[logingaurdGuard] },

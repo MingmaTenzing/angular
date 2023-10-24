@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 
 import { ContainerComponent } from './container/container.component';
 import { EmployeeComponent } from './employee/employee.component';
-import { APP_CONFG, APP_SERVICE_CONFIG } from './AppConfig/appconfig.service';
+import { APP_CONFIG, APP_SERVICE_CONFIG } from './AppConfig/appconfig.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppNavComponent } from './app-nav/app-nav.component';
@@ -24,37 +24,30 @@ import { HeaderModule } from './header/header.module';
 import { RouterTestingModule } from '@angular/router/testing';
 import { RouterModule } from '@angular/router';
 import { AppNavModule } from './app-nav/app-nav.module';
+import { BookingModule } from './booking/booking.module';
+import { LoginModule } from './login/login.module';
 @NgModule({
   declarations: [
     AppComponent,
     ContainerComponent,
     EmployeeComponent,
     NotfoundComponent,
-    LoginComponent,
     HoverDirective,
   ],
   imports: [
     BrowserModule,
-
+    BookingModule,
+    LoginModule,
     AppNavModule,
     HeaderModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
+
     RouterTestingModule,
-    MatIconModule,
-    MatListModule,
+    
     RouterModule,
-  ],
-  providers: [
-    {
-      provide: APP_SERVICE_CONFIG,
-      useValue: APP_CONFG,
-    },
   ],
   bootstrap: [AppComponent],
 })

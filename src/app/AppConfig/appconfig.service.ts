@@ -4,6 +4,6 @@ import { environment } from "../environment/eniroment";
 
 export const APP_SERVICE_CONFIG = new InjectionToken<AppConfig>('app.config')
 
-export const APP_CONFG: AppConfig = {
+export const APP_CONFIG: AppConfig = {
     apiEndPoint : environment.apiEndPoint   
 }

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RoomsListComponent } from './rooms-list.component';
+import { FilterPipe } from '../filter.pipe';
 
 describe('RoomsListComponent', () => {
   let component: RoomsListComponent;
@@ -8,7 +9,7 @@ describe('RoomsListComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [RoomsListComponent]
+      declarations: [RoomsListComponent, FilterPipe]
     });
     fixture = TestBed.createComponent(RoomsListComponent);
     component = fixture.componentInstance;

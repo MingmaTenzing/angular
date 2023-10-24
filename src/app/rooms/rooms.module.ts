@@ -9,6 +9,7 @@ import { RoomsListComponent } from './rooms-list/rooms-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderModule } from '../header/header.module';
 import { FilterPipe } from './filter.pipe';
+import {  MatFormFieldModule } from '@angular/material/form-field';
 
 
 @NgModule({
@@ -23,8 +24,10 @@ import { FilterPipe } from './filter.pipe';
     CommonModule,
     RoomsRoutingModule,
     FormsModule,
+    MatFormFieldModule,
     ReactiveFormsModule,
     HeaderModule,
-  ]
+  ],
+  
 })
 export class RoomsModule { }
